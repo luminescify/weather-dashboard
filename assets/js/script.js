@@ -36,9 +36,7 @@ function getWeather() {
         })
         .then(function (data) {
             console.log(data)
-            queryURL = rootUrl + '/data/2.5/onecall?lat=' + data[0].lat + '&lon=' + data[0].lon + '&units=imperial&appid=' + apiKey;
-            fetch(queryURL)
-                .then(function (response) {
+            fetch(rootUrl + '/data/2.5/onecall?lat=' + data[0].lat + '&lon=' + data[0].lon + '&units=imperial&appid=' + apiKey).then(function (response) {
                     return response.json();
                 })
                 .then(function (data) {
@@ -75,8 +73,10 @@ function getWeather() {
                         return response.json();
                     })
                     .then(function(data) {
-                        var forecastWeather = $('#forecast');
                         console.log(data);
+                        var forecastWeather = $('#forecast');
+                        var forecastTitle = $('<h3></h3>').text("5-Day Forecast");
+                        forecastWeather.append(forecastTitle);
                         for (var i = 0; i < 5; i++) {
                             var day = {
                                 dayNum: i,
@@ -85,8 +85,10 @@ function getWeather() {
                                 humidity: data.list[i].main.humidity
                             }
                             week.push(day);
-                            forecastWeather.children().eq(i).empty();
+                            var weatherDiv = $("<div></div>")
+                            weatherDiv.attr("class", "card ")
                         }
+                        
                         for (var i = 0; i < 5; i++) {
                             var currentDate = moment();
                             var weekDate = $("<h6></h6>").text(moment(currentDate, "MM[/]DD[/]YYYY").add(i + 1, 'days'));
@@ -95,8 +97,9 @@ function getWeather() {
                             var weekWind = $("<h6></h6>").text(week[i].wind);
                             var weekHumid = $("<h6></h6>").text(week[i].humidity);
                             console.log(forecastWeather.children()[i]);
-                            forecastWeather.children().eq(i).append(weekDate, status, weekWind, weekTemp, weekHumid);
+
                         }
+                        
                     })
                 })
         })
