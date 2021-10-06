@@ -39,6 +39,7 @@ function displaySearches() {
     })
 }
 
+// Pulls weather for daily and 5-day forecasts + appends to the page
 function getWeather(city) {
     if (!searchHistory.includes(city)) {
         searchHistory.push(city);
@@ -106,7 +107,7 @@ function getWeather(city) {
                         console.log(data);
                         week = [];
 
-                        // Creates object per day from api data
+                        // Creates object per day from data
                         for (var i = 0; i < 5; i++) {
                             var day = {
                                 dayNum: i,

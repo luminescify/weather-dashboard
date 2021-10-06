@@ -23,3 +23,10 @@
     background-color: transparent;
     margin-left: 0;
 }
+
+/* Forecast Cards */
+.forecast {
+    margin: 10px;
+    background-color:cornflowerblue;
+    padding: 10px;
+}
