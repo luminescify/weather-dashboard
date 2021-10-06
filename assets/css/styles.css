@@ -1,8 +1,25 @@
-.prev-search {
+/* Search History buttons */
+.previous-cities {
     color: black;
     background-color: lightgrey;
     border-radius: 5px;
     border: none;
     padding: 5px;
     margin: 10px 0px 3px 0px;
+    text-align: center;
+}
+
+/* 5-day forecast header */
+#weekly-forecast {
+    margin-top: 50px;
+}
+
+/* Search History buttons */
+#clear-storage {
+    border: none;
+    text-decoration: none;
+    font-size: 10px;
+    color: grey;
+    background-color: transparent;
+    margin-left: 0;
 }
