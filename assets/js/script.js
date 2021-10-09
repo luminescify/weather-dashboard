@@ -123,7 +123,7 @@ function getWeather(city) {
                             // Creates and populates data for 5-day forecast
                             var currentDate = moment().format("MM/DD/YYYY");
                             var conditionIcon = week[i].conditions;
-                            var weekDate = $("<h5></h5>").text(moment(currentDate).add(1, 'days'));
+                            var weekDate = $("<h5></h5>").text(moment(currentDate).add(i + 1, 'days'));
                             var weatherCondition = $("<img></img>").attr("src", "http://openweathermap.org/img/wn/" + conditionIcon + "@2x.png");
                             var weekTemp = $("<h6></h6>").text("Temp: " + week[i].temp + " ºF");
                             var weekWind = $("<h6></h6>").text("Wind: " + week[i].wind + " mph");
